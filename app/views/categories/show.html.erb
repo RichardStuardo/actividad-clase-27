@@ -1,0 +1,51 @@
+<div class="container">	
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+	<div class="well">
+		<div class="row">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+					<%= form_with model: [ @category, @product ], local: true do |form| %>
+
+						<%= form.label  "Ingrese nombre"%>
+						<%= form.text_field :name %>
+
+						<%= form.label "Ingresa el precio"%>
+						<%= form.text_field :price %>
+
+						<%= form.submit "Agregar"  %>
+
+					<% end %>
+				
+			</div>
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+				<% @category.products.each do |t| %>
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Porducto</th>
+							<th>Precio</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><%= t.name %></td>
+							<td><%= t.price %> <%= link_to 'Borrar',category_product_path(@category, t), class: 'btn btn-danger', method: :delete%></td>
+						</tr>
+					</tbody>
+				</table>
+
+			
+				<% end %>		
+			</div>
+		</div>
+		
+	</div>
+		<%= link_to 'Edit', edit_category_path(@category) %> |
+		<%= link_to 'Back', categories_path %>
+</div>
+
