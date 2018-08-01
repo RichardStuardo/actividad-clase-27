@@ -27,14 +27,14 @@
 				<table class="table table-hover">
 					<thead>
 						<tr>
-							<th>Porducto</th>
+							<th>Producto</th>
 							<th>Precio</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td><%= t.name %></td>
-							<td><%= t.price %> <%= link_to 'Borrar',category_product_path(@category, t), class: 'btn btn-danger', method: :delete%></td>
+							<td><%= t.price %> <%= link_to 'Borrar', category_product_path(@category, t), class: 'btn btn-danger', method: :delete %></td>
 						</tr>
 					</tbody>
 				</table>

@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
 		redirect_to categories_path
 	end
 
+	
+  private
 	def product_params
 		params.require(:product).permit(:name, :price)
 	end
